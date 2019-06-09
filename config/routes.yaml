@@ -4,4 +4,7 @@ main:
 ad-list:
     path: /ad-list
     controller: App\Controller\AdController::list
+add-ad:
+    path: /add-ad
+    controller: App\Controller\AdController::add
 
