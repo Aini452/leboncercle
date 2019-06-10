@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Validator\Constraints\DateInterval;
 
 use App\Service\AdService;
 use App\Entity\Ad;
@@ -51,6 +53,10 @@ class AdController extends AbstractController
             $ruser = $em->getRepository('App:User')->findOneBy( array() );
             $ad->setOwner( $ruser);
             $ad->setPrice(1245);
+            $now = new \DateTime();
+            $ad->setCreationDate( $now );
+            
+            $ad->setExpirationDate( $now );
 
             $em->persist( $ad );
             $em->flush();
@@ -59,5 +65,14 @@ class AdController extends AbstractController
         return $this->render( 'ad/add.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+    /**
+     * @Route("/show-ad/{id}", name="show-ad",
+     *  requirements = { "id" = "\d+" })
+     */
+    public function show(int $id){
+        return $this->render('ad/show.html.twig', 
+        array('ad' => $this->adService->get($id)));
     }
 }

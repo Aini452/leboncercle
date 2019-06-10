@@ -30,8 +30,24 @@ header {
     text-align: center;
 }
 
-.container .ads {
+.container {
     color : black;
+    text-align: center;
+    padding: 1rem;
+}
+
+.card {
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.container .ads .card {
+    border: 2px solid #003457;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius : 1rem;
+    
 }
 
 

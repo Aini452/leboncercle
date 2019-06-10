@@ -21,6 +21,13 @@ class AdType extends AbstractType{
                 )
             ))
             ->add('description', TextareaType::class
-            );
+            )
+            ->add('price', NumberType::class)
+            ->add('category', null, array(
+                'choice_label' => 'name',
+                'multiple' => false,
+                'expanded' => true
+            ))
+            ;
     }
 }

@@ -7,4 +7,6 @@ ad-list:
 add-ad:
     path: /add-ad
     controller: App\Controller\AdController::add
-
+show-ad:
+    path: /show-ad/{id}
+    controller: App\Controller\AdController::show

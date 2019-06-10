@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ ad.title }} - {{ parent() }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>{{ ad.title }}</h1>
+    <div class="content-ad">
+        <p>{{ ad.description }}</p>
+        <p class="price">{{ ad.price }} €</p>
+        <span> {{ ad.owner.mail }}</span>
+        <a href="mailto:{{ ad.owner.mail }}">Envoyer un mail</a>
+    </div>
+
+</div>
+
+{% endblock %}

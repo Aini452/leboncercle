@@ -3,18 +3,22 @@
 {% block title %}Les annonces{% endblock %}
 
 {% block body %}
-    <div class='container'>
+<div class='container'>
 
-        <h1> Les annonces !</h1>
+    <h1> Les annonces !</h1>
 
-        <div class="ads">
-            {% for ad in ads %}
+    <div class="ads">
+        {% for ad in ads %}
 
-            <div class="card">
-                    <h2 class="card-title">{{ ad.title }}</h2>
-            </div>
-            {% endfor %}
+        <div class="card">
+
+            <h2 class="card-title">{{ ad.title }}</h2>
+            <p> de {{ad.owner.nickname}}</p>
+
+            <a href="{{ path('show-ad', {"id": ad.id} ) }}">Voir l'annonce</a>
         </div>
-
+        {% endfor %}
     </div>
+
+</div>
 {% endblock %}
